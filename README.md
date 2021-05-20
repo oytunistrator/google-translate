@@ -72,7 +72,6 @@ $translator = new TranslatorFarm\Translator;
 
 $result = $translator->setSourceLang('en')
                      ->setTargetLang('ru')
-                     ->setFormat('html')
                      ->translate('Hello World');
                            
 dd($result); // "Привет мир"                           
@@ -85,12 +84,11 @@ To translate html content with given source language and target language:
 
 
 ```
-$translator = new TranslatorFarm\Translator;
+$translator = new TranslatorFarm\HtmlTranslate;
 
 
 $result = $translator->setSourceLang('en')
                      ->setTargetLang('ru')
-                     ->setFormat('html')
                      ->htmlTranslate('<div>Hello World</div>');
                            
 dd($result); // "Привет мир"                           
