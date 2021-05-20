@@ -2,8 +2,8 @@ Laravel package for Google Translate REST API
 ====================
 
 <!-- 
-[![GitHub license](https://img.shields.io/github/license/aurawindsurfing/google-translate.svg)](https://github.com/aurawindsurfing/google-translate/blob/master/LICENSE)
-[![GitHub issues](https://img.shields.io/github/issues/aurawindsurfing/google-translate.svg)](https://github.com/aurawindsurfing/google-translate/issues)
+[![GitHub license](https://img.shields.io/github/license/oytunistrator/google-translate.svg)](https://github.com/oytunistrator/google-translate/blob/master/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/oytunistrator/google-translate.svg)](https://github.com/oytunistrator/google-translate/issues)
  -->
 
 
@@ -15,14 +15,14 @@ Package can be installed using composer by adding to "require" object
 
 ```
 "require": {
-    "aurawindsurfing/google-translate"
+    "oytunistrator/google-translate"
 }
 ```
 
 or from console:
 
 ```
-composer require aurawindsurfing/google-translate
+composer require oytunistrator/google-translate
 ```
 
 
@@ -32,7 +32,7 @@ After the installation, you should add "Dedicated\GoogleTranslate\GoogleTranslat
 ```
         'providers' => [
                 /* 3rd Party Providers */
-                Dedicated\GoogleTranslate\GoogleTranslateProvider::class,
+                TranslatorFarm\GoogleTranslateProvider::class,
          ],
 ```
 Then you should publish config file to be able to add your Google API key.
@@ -40,7 +40,7 @@ To publish config you should do:
 
 ```
 php artisan vendor:publish \
---provider="Dedicated\GoogleTranslate\GoogleTranslateProvider" --tag=config
+--provider="TranslatorFarm\GoogleTranslateProvider" --tag=config
 ```
 
 After config is published, you will have it in `config\google-translate.php` of your Laravel project directory
@@ -67,12 +67,31 @@ To translate text with given source language and target language:
 
 
 ```
-$translator = new Dedicated\GoogleTranslate\Translator;
+$translator = new TranslatorFarm\Translator;
 
 
 $result = $translator->setSourceLang('en')
                      ->setTargetLang('ru')
+                     ->setFormat('html')
                      ->translate('Hello World');
+                           
+dd($result); // "Привет мир"                           
+```
+
+<br>
+
+
+To translate html content with given source language and target language:
+
+
+```
+$translator = new TranslatorFarm\Translator;
+
+
+$result = $translator->setSourceLang('en')
+                     ->setTargetLang('ru')
+                     ->setFormat('html')
+                     ->htmlTranslate('<div>Hello World</div>');
                            
 dd($result); // "Привет мир"                           
 ```
@@ -89,7 +108,7 @@ This will make 2 requests to google API:
 
 
 ```
-$translator = new Dedicated\GoogleTranslate\Translator;
+$translator = new TranslatorFarm\Translator;
 
 
 $result = $translator->setTargetLang('ru')

@@ -1,10 +1,11 @@
-<?php namespace Dedicated\GoogleTranslate;
+<?php 
+namespace TranslatorFarm;
 
 use GuzzleHttp\Client;
 
 /**
  * Class Translator
- * @package Dedicated\GoogleTranslate
+ * @package TranslatorFarm
  */
 class Translator
 {
@@ -43,6 +44,12 @@ class Translator
      * @var
      */
     protected $detectUrl;
+
+    /**
+     * Google translate REST format
+     * @var
+     */
+    protected $format;
 
     /**
      * @return Client
@@ -126,6 +133,24 @@ class Translator
     public function getTranslateUrl()
     {
         return $this->translateUrl;
+    }
+
+     /**
+     * @param $format
+     * @return $this
+     */
+    public function setFormat($format)
+    {
+        $this->format = $format;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFormat()
+    {
+        return $this->format;
     }
 
     /**
@@ -213,6 +238,26 @@ class Translator
         }
         return null;
     }
+
+    /**
+     * Translates provided array
+     *
+     * @param $array
+     * @param bool $autoDetect
+     * @return null
+     * @throws TranslateException
+     */
+    public function translateBatch($array, $autoDetect = true)
+    {
+        $results = [];
+        if(is_array($array)){
+            foreach($array as $item){
+                $results[] = $this->translate($item, $autoDetect); 
+            }
+        }
+        return $results;
+    }
+
 
     /**
      * Detects language of specified text string

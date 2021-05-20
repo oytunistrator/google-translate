@@ -1,4 +1,5 @@
-<?php namespace Dedicated\GoogleTranslate;
+<?php 
+namespace TranslatorFarm;
 
 use Illuminate\Support\ServiceProvider;
 
