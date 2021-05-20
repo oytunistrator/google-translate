@@ -45,6 +45,12 @@ class Translator
     protected $detectUrl;
 
     /**
+     * Google translate REST format
+     * @var
+     */
+    protected $format;
+
+    /**
      * @return Client
      */
     public function getHttpClient()
@@ -126,6 +132,24 @@ class Translator
     public function getTranslateUrl()
     {
         return $this->translateUrl;
+    }
+
+     /**
+     * @param $format
+     * @return $this
+     */
+    public function setFormat($format)
+    {
+        $this->format = $format;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFormat()
+    {
+        return $this->format;
     }
 
     /**
