@@ -5,7 +5,7 @@ return [
     /**
      * Google key for authentication
      */
-    'api_key' => false,
+    'api_key' => env('GOOGLE_TRANSLATE_APIKEY', false),
 
     /**
      * Url to translation REST service
