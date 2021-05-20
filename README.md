@@ -2,8 +2,8 @@ Laravel package for Google Translate REST API
 ====================
 
 <!-- 
-[![GitHub license](https://img.shields.io/github/license/aurawindsurfing/google-translate.svg)](https://github.com/aurawindsurfing/google-translate/blob/master/LICENSE)
-[![GitHub issues](https://img.shields.io/github/issues/aurawindsurfing/google-translate.svg)](https://github.com/aurawindsurfing/google-translate/issues)
+[![GitHub license](https://img.shields.io/github/license/oytunistrator/google-translate.svg)](https://github.com/oytunistrator/google-translate/blob/master/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/oytunistrator/google-translate.svg)](https://github.com/oytunistrator/google-translate/issues)
  -->
 
 
@@ -15,14 +15,14 @@ Package can be installed using composer by adding to "require" object
 
 ```
 "require": {
-    "aurawindsurfing/google-translate"
+    "oytunistrator/google-translate"
 }
 ```
 
 or from console:
 
 ```
-composer require aurawindsurfing/google-translate
+composer require oytunistrator/google-translate
 ```
 
 
@@ -72,6 +72,7 @@ $translator = new Dedicated\GoogleTranslate\Translator;
 
 $result = $translator->setSourceLang('en')
                      ->setTargetLang('ru')
+                     ->setFormat('html')
                      ->translate('Hello World');
                            
 dd($result); // "Привет мир"                           

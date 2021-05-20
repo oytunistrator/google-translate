@@ -1,23 +1,14 @@
 {
     "name": "oytunistrator/google-translate",
-    "description": "Free Laravel package for Paid Google Translate REST API with your own API key",
+    "description": "Free Laravel package for Google Translate REST API with your own API key",
     "keywords": ["laravel", "google", "translate", "php"],
     "license": "MIT",
     "homepage": "https://github.com/oytunistrator/google-translate",
     "authors": [
       {
-        "name": "Arturs Terehovics",
-        "role": "Author, Developer"
-      },
-      {
-        "name": "Tomasz Lotocki",
-        "email": "tom@gazeta.ie",
-        "role": "Mainteiner"
-      },
-      {
         "name": "Oytun OZDEMIR",
         "email": "info@oytun.org",
-        "role": "Mainteiner"
+        "role": "Developer"
       }
     ],
     "require": {
