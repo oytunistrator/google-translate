@@ -32,7 +32,7 @@ After the installation, you should add "Dedicated\GoogleTranslate\GoogleTranslat
 ```
         'providers' => [
                 /* 3rd Party Providers */
-                Dedicated\GoogleTranslate\GoogleTranslateProvider::class,
+                TranslatorFarm\GoogleTranslateProvider::class,
          ],
 ```
 Then you should publish config file to be able to add your Google API key.
@@ -40,7 +40,7 @@ To publish config you should do:
 
 ```
 php artisan vendor:publish \
---provider="Dedicated\GoogleTranslate\GoogleTranslateProvider" --tag=config
+--provider="TranslatorFarm\GoogleTranslateProvider" --tag=config
 ```
 
 After config is published, you will have it in `config\google-translate.php` of your Laravel project directory
@@ -67,7 +67,7 @@ To translate text with given source language and target language:
 
 
 ```
-$translator = new Dedicated\GoogleTranslate\Translator;
+$translator = new TranslatorFarm\Translator;
 
 
 $result = $translator->setSourceLang('en')
@@ -90,7 +90,7 @@ This will make 2 requests to google API:
 
 
 ```
-$translator = new Dedicated\GoogleTranslate\Translator;
+$translator = new TranslatorFarm\Translator;
 
 
 $result = $translator->setTargetLang('ru')
