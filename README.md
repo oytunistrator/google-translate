@@ -81,6 +81,24 @@ dd($result); // "Привет мир"
 <br>
 
 
+To translate html content with given source language and target language:
+
+
+```
+$translator = new TranslatorFarm\Translator;
+
+
+$result = $translator->setSourceLang('en')
+                     ->setTargetLang('ru')
+                     ->setFormat('html')
+                     ->htmlTranslate('<div>Hello World</div>');
+                           
+dd($result); // "Привет мир"                           
+```
+
+<br>
+
+
 By default language detection is turned on, so you can translate text without specifying source language.
 
 This will make 2 requests to google API:

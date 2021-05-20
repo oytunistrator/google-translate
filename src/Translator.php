@@ -5,7 +5,7 @@ use GuzzleHttp\Client;
 
 /**
  * Class Translator
- * @package Dedicated\GoogleTranslate
+ * @package TranslatorFarm
  */
 class Translator
 {
@@ -257,6 +257,7 @@ class Translator
         }
         return $results;
     }
+    
 
     /**
      * Translates provided html
@@ -270,7 +271,6 @@ class Translator
     {
         $this->setFormat('html');
 
-        
     }
 
 
