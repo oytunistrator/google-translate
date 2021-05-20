@@ -7,7 +7,7 @@ use DOMDocument;
  * Class HtmlTranslate
  * @package TranslatorFarm
  */
-class HtmlTranslate
+class HtmlTranslate extends Translator
 {
     public $htmlDocument;
 
@@ -28,23 +28,19 @@ class HtmlTranslate
         '/<span\b[^>]*>(.*?)<\/span>/i',                  // <span>...</span>
     );
 
-    public function __construct($html)
+    public function translateHtml($html, $autoDetect = true)
     {
         $this->htmlDocument = $html;
-    }
-
-    public function pregMatch()
-    {
         foreach($this->search as $pattern){
-            preg_replace_callback(
+            $this->htmlDocument = preg_replace_callback(
                 $pattern,
-                function ($sonuc) {
-                    var_dump($sonuc);
+                function ($matched) use ($autoDetect) {
+                    return $this->translate($matched[1], $autoDetect);
                 },
                 $this->htmlDocument
             );
         }
+
+        return $this->htmlDocument;
     }
-
-
 }

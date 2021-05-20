@@ -257,21 +257,6 @@ class Translator
         }
         return $results;
     }
-    
-
-    /**
-     * Translates provided html
-     *
-     * @param $html
-     * @param bool $autoDetect
-     * @return null
-     * @throws TranslateException
-     */
-    public function htmlTranslate($html, $autoDetect = true)
-    {
-        $this->setFormat('html');
-
-    }
 
 
     /**
