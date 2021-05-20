@@ -20,12 +20,12 @@
     },
     "autoload": {
       "psr-4": {
-        "Dedicated\\GoogleTranslate\\": "src/"
+        "TranslatorFarm\\": "src/"
       }
     },
     "autoload-dev": {
       "psr-4": {
-        "Dedicated\\GoogleTranslate\\Tests\\": "tests/"
+        "TranslatorFarm\\Tests\\": "tests/"
       }
     }
 }
