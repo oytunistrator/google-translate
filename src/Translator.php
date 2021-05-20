@@ -239,6 +239,41 @@ class Translator
     }
 
     /**
+     * Translates provided array
+     *
+     * @param $array
+     * @param bool $autoDetect
+     * @return null
+     * @throws TranslateException
+     */
+    public function translateBatch($array, $autoDetect = true)
+    {
+        $results = [];
+        if(is_array($array)){
+            foreach($array as $item){
+                $results[] = $this->translate($item, $autoDetect); 
+            }
+        }
+        return $results;
+    }
+
+    /**
+     * Translates provided html
+     *
+     * @param $html
+     * @param bool $autoDetect
+     * @return null
+     * @throws TranslateException
+     */
+    public function htmlTranslate($html, $autoDetect = true)
+    {
+        $this->setFormat('html');
+
+        
+    }
+
+
+    /**
      * Detects language of specified text string
      *
      * @param $text
